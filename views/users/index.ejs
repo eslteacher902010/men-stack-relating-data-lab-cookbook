@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/style.css" />
+    <title>All Users</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div class="fruit-details">
+      <h1>All Users</h1>
+    </div>
+
+    <% if (users.length) { %>
+      <ul>
+        <% users.forEach(user => { %>
+          <li>
+            <a href="/users/<%= user._id %>/foods/"><%= user.name %></a>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>There are no users.</p>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/style.css" />
+
+    <title><%= user.username %>'s Pantry</title>
+  </head>
+  <body>
+    <h1><%= user.username %>'s Pantry</h1>
+
+    <% if (pantry.length) { %>
+      <ul>
+        <% pantry.forEach((food)=>{ %>
+          <li>
+            <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+              <%= food.name %>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>There is no food in the pantry at this time.</p>
+    <% } %>
+
+    <% if (currentUser.equals(user)) { %>
+      <a class="add-food" href="/users/<%= user._id %>/foods/new">Add food</a>
+    <% } %>
+  </body>
+</html>
