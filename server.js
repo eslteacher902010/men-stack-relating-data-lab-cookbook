@@ -89,6 +89,9 @@ app.get('/vip-lounge', (req, res) => {
   }
 });
 
+
+
+
 app.use(passUserToView);
 app.use('/auth', authController);
 app.use(isSignedIn);
@@ -96,6 +99,9 @@ app.use('/users/:userId/foods', foodsController);
 app.use('/recipes', recipesController);
 app.use('/ingredients', ingredientsController);
 
+// Notes for Jan: 
+// Use /users/:id/foods to see the embedded foods route, 
+// and /recipes to see the separate recipe/ingredient route.
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
